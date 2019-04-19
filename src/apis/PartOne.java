@@ -25,7 +25,7 @@ public class PartOne {
             if(status == 200) { // success, read the output
                 InputStreamReader stmread = new InputStreamReader(con.getInputStream());
                 Map<String, Integer> results = OutputParser.listAllResults(stmread);
-                System.out.println(results.toString());
+                //System.out.println(results.toString());
                 con.disconnect();
 
             } else {
@@ -53,6 +53,5 @@ public class PartOne {
         String pickup = args[0];
         String dropoff = args[1];
         getstuff(pickup, dropoff);
-        System.out.println("Hello, world!");
     }
 }
