@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.Map;
 
 public class PartOne {
 
@@ -22,13 +23,9 @@ public class PartOne {
             int status = con.getResponseCode();
 
             if(status == 200) { // success, read the output
-                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String inputLine;
-                StringBuffer content = new StringBuffer();
-                while((inputLine = bf.readLine()) != null) {
-                    content.append(inputLine);
-                }
-                bf.close();
+                InputStreamReader stmread = new InputStreamReader(con.getInputStream());
+                Map<String, Integer> results = OutputParser.listAllResults(stmread);
+                System.out.println(results.toString());
                 con.disconnect();
 
             } else {
@@ -47,7 +44,7 @@ public class PartOne {
     }
 
     private static String[] organiseOutput(String output) {
-        String[] result = new String[];
+        String[] result = new String[10];
 
         return result;
     }
