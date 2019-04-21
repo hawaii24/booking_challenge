@@ -17,14 +17,7 @@ import org.json.JSONObject;
 
 class OutputParser {
 
-    private static String[] listRanker(StringBuffer output) {
-        // this method takes the output of the API call and ranks the results by distance
-        String[] response = new String[10];
-
-
-
-        return response;
-    }
+ 
 
     private static String jsonReader(InputStreamReader stmread) throws IOException {
         BufferedReader bf = new BufferedReader(stmread);
@@ -38,19 +31,10 @@ class OutputParser {
         return content.toString();
     }
 
-    private static String bufferParser(StringBuffer charSeq) {
-
-        for(int i = 0;  i < charSeq.length(); i++) {
-            char currentCh = charSeq.charAt(i);
-        }
-
-        return "";
-    }
-
 
     private static Map<String, Integer> sortMapByValue(Map<String, Integer> unsortedMap) {
 
-        // convert map to a list of map
+        // convert map to a list of map to use Collections.sort
         List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(unsortedMap.entrySet());
         
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
@@ -83,13 +67,7 @@ class OutputParser {
         
         Map<String, Integer> results = sortMapByValue(queryResults); 
         
-        for(Map.Entry<String, Integer> entry: results.entrySet()) {
-        	String tobePrinted = String.format("{%s} - {%d}", entry.getKey(), entry.getValue());
-        	System.out.println(tobePrinted);
-        }
-        
-
-        return queryResults;
+        return results;
     }
 
 
