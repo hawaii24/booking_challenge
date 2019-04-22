@@ -6,7 +6,6 @@ Coding challenge for the Software Engineer Internship Programme Application
 
 Navigate to the `server` folder. There are two executables called `PartOne.jar` and `PartOneExtended.jar`.
 You can either run the two JAR files at the command line or double-click them if your operating system allows it. 
-cd server/src/main/java/apis/booking_challenge
 
 ## Part One 
 ### Console application to print the search results for Dave's Taxis
