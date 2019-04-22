@@ -3,7 +3,6 @@ Coding challenge for the Software Engineer Internship Programme Application
 
 
 ## Setup
-Run the command: 
 
 Navigate to the `server` folder. There are two executables called `PartOne.jar` and `PartOneExtended.jar`.
 You can either run the two JAR files at the command line or double-click them if your operating system allows it. 
