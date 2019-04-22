@@ -29,7 +29,7 @@ class PartOneTest {
 		Map<String, Integer> result = exercise.getstuff("dave", 4); 
 		
 		if(result.size() == 0) {
-			assertEquals("Sorry, could not access Dave's API" + System.getProperty("line.separator"), os.toString());
+			assert(result.containsKey("Sorry, could not access Dave's API"));
 		} 
 		
 		
