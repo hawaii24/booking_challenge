@@ -1,4 +1,4 @@
-package apis;
+package apis.booking_challenge;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,13 +20,13 @@ class PartOneTest {
 
 	
 	@Test
-	void test() {
+	void testNoAccessToAPIBehaviour() {
 		String heathrow = "51.470020,-0.454296";
 		String buckinghamPalace = "51.501366,-0.141890";
 		OutputStream os = new ByteArrayOutputStream();
 		
 		PartOne exercise = new PartOne(heathrow, buckinghamPalace); 
-		Map<String, Integer> result = exercise.fetchFromAPI("dave", 4); 
+		Map<String, Integer> result = exercise.getstuff("dave", 4); 
 		
 		if(result.size() == 0) {
 			assertEquals("Sorry, could not access Dave's API" + System.getProperty("line.separator"), os.toString());
@@ -42,7 +42,7 @@ class PartOneTest {
 		OutputStream os = new ByteArrayOutputStream(); 
 		
 		PartOne exercise = new PartOne(firstInput, secondInput); 
-		Map<String, Integer> result = exercise.fetchFromAPI("dave", 4); 
+		Map<String, Integer> result = exercise.getstuff("dave", 4); 
 		
 		if(result.size() != 0) {
 			assert(result.containsKey("ERROR: Invalid coordinates."));
@@ -55,17 +55,12 @@ class PartOneTest {
 		String secondInput = "51.501366,-0.141890";
 		
 		PartOne exercise = new PartOne(firstInput, secondInput); 
-		Map<String, Integer> result = exercise.fetchFromAPI("dave", 24); 
+		Map<String, Integer> result = exercise.getstuff("dave", 24); 
 		
 		if(result.size() != 0) {
 			assert(result.containsKey("ERROR: The number of passangers must be between 1 and 16")); 
 		} 
 		
 	}
-	
-	// we'll generate some random data to see how the method OutputParser() reacts in various situations
-
-	
-	
 
 }
