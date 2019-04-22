@@ -19,8 +19,7 @@ import org.json.JSONObject;
 
 class OutputParser {
 
- 
-
+    // this class takes the InputStream obtained from the API call and parses it to our requirements
     private static String jsonReader(InputStreamReader stmread) throws IOException {
         BufferedReader bf = new BufferedReader(stmread);
         String inputLine;
@@ -37,26 +36,24 @@ class OutputParser {
     private static Map<String, Integer> sortMapByValue(Map<String, Integer> unsortedMap) {
 
         // convert map to a list of map to use Collections.sort
-        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(unsortedMap.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-        	@Override // we wish to sort them in descending order
-        	public int compare(Map.Entry<String, Integer> l1, Map.Entry<String, Integer> l2) {
-        		    return (l2.getValue().compareTo(l1.getValue()));
-        	}
+        List<Map.Entry<String, Integer>> listOfMaps = new LinkedList<Map.Entry<String, Integer>>(unsortedMap.entrySet());
+        Collections.sort(listOfMaps, new Comparator<Map.Entry<String, Integer>>() {
+        	 @Override // we wish to sort them in descending order
+        	 public int compare(Map.Entry<String, Integer> firstEntry, Map.Entry<String, Integer> secondEntry) {
+        		    return (secondEntry.getValue().compareTo(firstEntry.getValue()));
+        	 }
         
         });
         
         Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
-        for(Map.Entry<String, Integer> entry: list) {
+        for(Map.Entry<String, Integer> entry: listOfMaps) {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
-        
         
         return sortedMap; 
     }
     protected static Map<String, Integer> listAllResults(InputStreamReader stmread, int num_pass) throws IOException, JSONException {
-        String json = jsonReader(stmread);
-        JSONObject obj = new JSONObject(json);
+        JSONObject obj = new JSONObject(jsonReader(stmread));
         Map<String, Integer> queryResults = new HashMap<>();
         JSONArray options = obj.getJSONArray("options");
         List<String> acceptableCars = new ArrayList<String>(); // weeds out the cars irrelevant to the
