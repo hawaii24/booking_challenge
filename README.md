@@ -14,7 +14,11 @@ You can either run the two JAR files at the command line or double-click them if
 java -jar PartOne.jar <arg1> <arg2> <arg3>
 ``` 
 where `arg1` is the LatLng for the pickup location, `arg2` is the LatLng for the drop-off location and `arg3` is the number 
-of passengers. Set it to `4` for the standard behaviour. Any integer between 1 and 16 will do. 
+of passengers. Set it to `4` or less to turn off filter by car type. Any integer between 1 and 16 will do. 
+Ex:
+```
+java -jar PartOne.jar 51.470020,-0.454296 51.501366,-0.141890 4
+
 
 ### Console application to print the search results for all Taxi companies
 
@@ -25,9 +29,9 @@ where `arg1`, `arg2` and `arg3` are defined as previously.
 
 ## Part 2
 ### Launching the server
-Go back to the main folder to launch the local server: 
+You need to be in the `server` folder as previously and run the following command to start the server on port 8080:
 ```
-cd && cd ~/path/to/downloaded/project/server && ./mvnw spring-boot:run 
+./mvnw spring-boot:run 
 ```
 Type `http://localhost:8080/<app>` either on Postman or in any browser to start sending `GET`requests, where `app` is one of 
 `partOne` or `extensionPartOne`, followed by the arguments as defined previously. 
