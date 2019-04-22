@@ -38,7 +38,7 @@ Go back to the main folder to launch the local server:
 ```
 cd && cd ~/path/to/downloaded/project/server && ./mvnw spring-boot:run 
 ```
-Type `http://localhost:8080/<app>` either on Postman or in any browser to start sending `GET`requests, where <app> is one of 
+Type `http://localhost:8080/<app>` either on Postman or in any browser to start sending `GET`requests, where `app` is one of 
 `partOne` or `extensionPartOne`, followed by the arguments as defined previously. 
 
 Ex: 
