@@ -38,5 +38,5 @@ Type `http://localhost:8080/<app>` either on Postman or in any browser to start 
 
 Ex: 
 ```
-http://localhost:8080/extensionPartOne?pickup=51.470020,-0.454296&dropoff=51.501366,-0.141890&numPassengers=4
+http://localhost:8080/partOne?pickup=51.470020,-0.454296&dropoff=51.501366,-0.141890&numPassengers=4
 ```
