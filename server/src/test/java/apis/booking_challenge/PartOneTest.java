@@ -1,6 +1,6 @@
 package apis.booking_challenge;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class PartOneTest {
 
