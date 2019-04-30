@@ -67,7 +67,7 @@ public class PartOneExtension extends PartOne {
 	public static void main(String[] args) {
 	
 
-    	if(args.length < 2 && args.length > 3){
+    	if(args.length != 3){
     		System.out.println("ERROR: Please enter exactly one pickup coordinates pair and one dropoff coordinates pair");
     	} else {
     		String coordinateChecker = "^(\\-?\\d+(\\.\\d+)?),\\s*(\\-?\\d+(\\.\\d+)?)$"; 
