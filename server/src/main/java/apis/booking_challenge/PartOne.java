@@ -68,15 +68,9 @@ public class PartOne {
    
     
     public static void main(String args[]) {
-		List<String> acceptableApis = new ArrayList<String>();
-		acceptableApis.add("dave"); 
-		acceptableApis.add("eric");
-		acceptableApis.add("jeff");
-
-		if(args.length != 2){
-			System.out.println("ERROR: Please enter exactly one pickup coordinates, one dropoff coordinates and the API name");
-		} else if(!acceptableApis.contains(args[2])) {
-			System.out.println("ERROR: Please enter as API one of: dave, eric, jeff."); 
+		
+		if(args.length != 3){
+			System.out.println("ERROR: Please enter exactly one pickup coordinates, one dropoff coordinates and the number of passengers.");
 		} else {
 			// make sure arguments are genuine GPS lat-long coordinates 
 			String coordinateChecker = "^(\\-?\\d+(\\.\\d+)?),\\s*(\\-?\\d+(\\.\\d+)?)$"; 
