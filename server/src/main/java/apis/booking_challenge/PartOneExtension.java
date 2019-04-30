@@ -24,10 +24,7 @@ public class PartOneExtension extends PartOne {
 		}
 		Map<String, Integer> dave = getstuff("dave", num_pass);
 		Map<String, Integer> eric = getstuff("eric", num_pass);
-		Map<String, Integer> jeff = getstuff("jeff", num_pass);
-
-		List<Map<String, String>> jsonResult = new ArrayList<Map<String, String>>();
-		 
+		Map<String, Integer> jeff = getstuff("jeff", num_pass);		 
 		
 		List<String> results = new ArrayList<String>(); 
 		
