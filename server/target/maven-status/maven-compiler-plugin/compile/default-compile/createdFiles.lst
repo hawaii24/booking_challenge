@@ -1,6 +1,7 @@
-apis/booking_challenge/PartOne.class
-apis/booking_challenge/ChallengeController.class
-apis/booking_challenge/PartOneExtension.class
-apis/booking_challenge/OutputParser$1.class
-apis/booking_challenge/BookingChallengeApplication.class
-apis/booking_challenge/OutputParser.class
+apis/BookingChallengeApplication.class
+apis/ChallengeController.class
+apis/PartOneExtension.class
+apis/PartOne.class
+apis/OutputParser.class
+apis/Car.class
+apis/CarCategory.class

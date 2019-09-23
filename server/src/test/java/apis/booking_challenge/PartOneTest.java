@@ -1,7 +1,8 @@
-package apis.booking_challenge;
+package apis;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -14,53 +15,58 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 class PartOneTest {
 
 	
 	@Test
-	void testNoAccessToAPIBehaviour() {
+	void whenAPIInavailableShouldOutputStandardErrorMessageTest() {
 		String heathrow = "51.470020,-0.454296";
 		String buckinghamPalace = "51.501366,-0.141890";
 		OutputStream os = new ByteArrayOutputStream();
 		
 		PartOne exercise = new PartOne(heathrow, buckinghamPalace); 
-		Map<String, Integer> result = exercise.getstuff("dave", 4); 
+		List<Car> result = exercise.fetchListOfCars("dave", 4); 
 		
 		if(result.size() == 0) {
-			assert(result.containsKey("Sorry, could not access Dave's API"));
+			assertEquals("Sorry, could not access Dave's API" + System.getProperty("line.separator"), os.toString());
 		} 
 		
 		
 	}
 	
 	@Test
-	void testInvalidInput() {
+	void whenInvalidCoordinatesAreProvidedShouldOutputStandardErrorMessageTest() {
 		String firstInput = "51.470020,,-0.454296";
 		String secondInput = "51.501366,--0.141890";
-		OutputStream os = new ByteArrayOutputStream(); 
 		
 		PartOne exercise = new PartOne(firstInput, secondInput); 
-		Map<String, Integer> result = exercise.getstuff("dave", 4); 
+		List<Car> result = exercise.fetchListOfCars("dave", 4); 
 		
-		if(result.size() != 0) {
-			assert(result.containsKey("ERROR: Invalid coordinates."));
-		}
+		assertNull(result);
 	}
 	
 	@Test
-	void testInvalidPassengers() {
+	void whenInvalidNumberOfPassengersIsProvidedShouldOutputStandardErrorMessageTest() {
 		String firstInput = "51.470020,-0.454296";
 		String secondInput = "51.501366,-0.141890";
 		
 		PartOne exercise = new PartOne(firstInput, secondInput); 
-		Map<String, Integer> result = exercise.getstuff("dave", 24); 
+		List<Car> result = exercise.fetchListOfCars("dave", 24); 
 		
-		if(result.size() != 0) {
-			assert(result.containsKey("ERROR: The number of passangers must be between 1 and 16")); 
-		} 
+		assertNull(result);
 		
 	}
+	
+	// we'll generate some random data to see how the method OutputParser() reacts in various situations
+	@Test
+	void whenCorrectInputIsPassedShouldReturnCorrectDataTest() {
+		BufferedReader bufferedReader = mock(BufferedReader.class); 
+		assert(true);
+	}
+	
 
 }
